@@ -21,7 +21,9 @@ public class Main {
         System.out.println("multiplication = " + simpleCalculator.getMultiplicationResult());
         System.out.println("division = " + simpleCalculator.getDivisionResult());
 
+        System.out.println();
         System.out.println("====================");
+        System.out.println();
 
         // Person
         Person person = new Person();
@@ -39,6 +41,17 @@ public class Main {
         person.setLastName("Smith");
         System.out.println("fullName = " + person.getFullName());
 
+        System.out.println();
         System.out.println("====================");
+        System.out.println();
+
+        // Wall
+        Wall wall = new Wall(5, 4);
+        System.out.println("area = " + wall.getArea());
+        System.out.println("-------------------");
+        wall.setHeight(-1.5);
+        System.out.println("width = " + wall.getWidth());
+        System.out.println("height = " + wall.getHeight());
+        System.out.println("area = " + wall.getArea());
     }
 }
