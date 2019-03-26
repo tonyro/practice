@@ -8,7 +8,16 @@ public class Main {
         simpleCalculator.setSecondNumber(4);
 
         System.out.println("add = " + simpleCalculator.getAdditionResult());
-        System.out.println("subtract = " + simpleCalculator.getSubstractionResult());
+        System.out.println("subtract = " + simpleCalculator.getSubtractionResult());
+        System.out.println("multiplication = " + simpleCalculator.getMultiplicationResult());
+        System.out.println("division = " + simpleCalculator.getDivisionResult());
+
+        System.out.println("-------------------");
+
+        simpleCalculator.setFirstNumber(5.25);
+        simpleCalculator.setSecondNumber(0);
+        System.out.println("add = " + simpleCalculator.getAdditionResult());
+        System.out.println("subtract = " + simpleCalculator.getSubtractionResult());
         System.out.println("multiplication = " + simpleCalculator.getMultiplicationResult());
         System.out.println("division = " + simpleCalculator.getDivisionResult());
     }

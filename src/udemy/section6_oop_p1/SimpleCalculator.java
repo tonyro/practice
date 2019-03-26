@@ -8,8 +8,8 @@ public class SimpleCalculator {
         return firstNumber + secondNumber;
     }
 
-    public double getSubstractionResult() {
-        return secondNumber - firstNumber;
+    public double getSubtractionResult() {
+        return firstNumber - secondNumber;
     }
 
     public double getMultiplicationResult() {
