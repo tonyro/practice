@@ -20,5 +20,25 @@ public class Main {
         System.out.println("subtract = " + simpleCalculator.getSubtractionResult());
         System.out.println("multiplication = " + simpleCalculator.getMultiplicationResult());
         System.out.println("division = " + simpleCalculator.getDivisionResult());
+
+        System.out.println("====================");
+
+        // Person
+        Person person = new Person();
+        person.setFirstName("");
+        person.setLastName("");
+        person.setAge(10);
+        System.out.println("fullName = " + person.getFullName());
+        System.out.println("teen = " + person.isTeen());
+        System.out.println("-------------------");
+        person.setFirstName("John");
+        person.setAge(18);
+        System.out.println("fullName = " + person.getFullName());
+        System.out.println("teen = " + person.isTeen());
+        System.out.println("-------------------");
+        person.setLastName("Smith");
+        System.out.println("fullName = " + person.getFullName());
+
+        System.out.println("====================");
     }
 }
