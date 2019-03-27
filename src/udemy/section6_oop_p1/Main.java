@@ -3,7 +3,7 @@ package udemy.section6_oop_p1;
 public class Main {
     public static void main(String[] args) {
         // Simple Calculator
-        System.out.println("Simple Calculator");
+        System.out.println("[Simple Calculator]");
         SimpleCalculator simpleCalculator = new SimpleCalculator();
         simpleCalculator.setFirstNumber(5.0);
         simpleCalculator.setSecondNumber(4);
@@ -27,7 +27,7 @@ public class Main {
         System.out.println();
 
         // Person
-        System.out.println("Person");
+        System.out.println("[Person]");
         Person person = new Person();
         person.setFirstName("");
         person.setLastName("");
@@ -48,7 +48,7 @@ public class Main {
         System.out.println();
 
         // Wall
-        System.out.println("Wall");
+        System.out.println("[Wall]");
         Wall wall = new Wall(5, 4);
         System.out.println("area = " + wall.getArea());
         System.out.println("-------------------");
@@ -62,7 +62,7 @@ public class Main {
         System.out.println();
 
         // Point
-        System.out.println("Point");
+        System.out.println("[Point]");
         Point first = new Point(6, 5);
         Point second = new Point(3, 1);
         System.out.println("distance(0,0) = " + first.distance());
@@ -71,5 +71,29 @@ public class Main {
         System.out.println("-------------------");
         Point point = new Point();
         System.out.println("distance() = "  + point.distance());
+
+        System.out.println();
+        System.out.println("====================");
+        System.out.println();
+
+        // Complex Number
+        System.out.println("[Complex Number]");
+        ComplexNumber one = new ComplexNumber(1.0, 1.0);
+        ComplexNumber two = new ComplexNumber(2.5, -1.5);
+        one.add(1, 1);
+        System.out.println("one.real = " + one.getReal());
+        System.out.println("one.imaginary = " + one.getImaginary());
+        System.out.println("-------------------");
+        one.subtract(two);
+        System.out.println("one.real = " + one.getReal());
+        System.out.println("one.imaginary = " + one.getImaginary());
+        System.out.println("-------------------");
+        two.subtract(one);
+        System.out.println("one.real = " + two.getReal());
+        System.out.println("one.imaginary = " + two.getImaginary());
+
+        System.out.println();
+        System.out.println("====================");
+        System.out.println();
     }
 }
