@@ -8,15 +8,12 @@ public class HealthyBurger extends Hamburger {
         super("Healthy Burger", "Brown Rye Bread Roll", "", 7.99);
     }
 
+    @Override
     public void addAddition(Addition addition) {
-        List<Addition> additions;
-        if (getAdditions() == null) {
-            additions = new ArrayList<>();
+        if (getAdditions().size() < 2) {
+            super.addAddition(addition);
         } else {
-            additions = getAdditions();
+            System.out.println("You can only add 2 additions to Healthy Burger");
         }
-
-        additions.add(addition);
-        setAdditions(additions);
     }
 }

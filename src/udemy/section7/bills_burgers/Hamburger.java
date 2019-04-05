@@ -1,12 +1,13 @@
 package udemy.section7.bills_burgers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hamburger {
     private String name;
     private String breadRoll;
     private String meat;
-    private List<Addition> additions;
+    private List<Addition> additions = new ArrayList<>();
     private double price;
 
     protected Hamburger(String name, String breadRoll, String meat, double price) {
@@ -50,7 +51,7 @@ public class Hamburger {
         return additions;
     }
 
-    protected void setAdditions(List<Addition> additions) {
-        this.additions = additions;
+    void addAddition(Addition addition) {
+        additions.add(addition);
     }
 }

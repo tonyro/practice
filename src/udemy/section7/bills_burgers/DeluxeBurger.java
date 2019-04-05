@@ -11,9 +11,12 @@ public class DeluxeBurger extends Hamburger {
     }
 
     private void setAdditions(){
-        List<Addition> additions = new ArrayList<>();
-        additions.add(new Chips());
-        additions.add(new Drink());
-        super.setAdditions(additions);
+        addAddition(new Chips());
+        addAddition(new Drink());
+    }
+
+    @Override
+    void addAddition(Addition addition) {
+        System.out.println("You cannot choose additions to Deluxe Burger");
     }
 }
