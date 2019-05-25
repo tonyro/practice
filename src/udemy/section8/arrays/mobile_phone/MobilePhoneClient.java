@@ -1,6 +1,5 @@
 package udemy.section8.arrays.mobile_phone;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class MobilePhoneClient {
