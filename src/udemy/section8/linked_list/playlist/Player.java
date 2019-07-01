@@ -36,11 +36,11 @@ public class Player {
 
         playlist = new Playlist(ml);
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
         while (toContinue) {
             printMenu();
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
             String songTitle;
             String albumTitle;
             switch (choice) {
@@ -92,5 +92,6 @@ public class Player {
                 "6: Stop playing\n" +
                 "7: Print this menu\n" +
                 "0: Exit");
+        System.out.println("Make your choice: ");
     }
 }
