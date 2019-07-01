@@ -1,10 +1,15 @@
 package udemy.section8.linked_list.playlist;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class Playlist {
+    private static final Logger logger = LoggerFactory.getLogger(Playlist.class);
+
     private ArrayList<Album> albums = new ArrayList<>();
     private LinkedList<Song> songs = new LinkedList<>();
     private MusicLibrary musicLibrary;
@@ -20,7 +25,7 @@ public class Playlist {
         if(album != null) {
             songs.addAll(album.getSongs());
         } else {
-            System.out.println("Album '" + albumTitle + "' is not in your library! You cannot play it!");
+            logger.warn("Album '{}' is not in your library! You cannot play it!", albumTitle);
         }
     }
 
@@ -29,13 +34,15 @@ public class Playlist {
         if(song != null) {
             songs.add(song);
         } else {
-            System.out.println("Song '" + songTitle + "' from album '" + albumTitle + "' is not in your library! You cannot play it!");
+            logger.warn("Song '{}' from album '{}' is not in your library! You cannot play it!",
+                    songTitle,
+                    albumTitle);
         }
     }
 
     public void play() {
         if (playingQueue != null) {
-            System.out.println("Playing is already in progress!");
+            logger.warn("Playing is already in progress!");
             return;
         }
 
@@ -43,7 +50,9 @@ public class Playlist {
         if (playingQueue.hasNext()) {
             Song song = playingQueue.next();
             playForward = true;
-            System.out.println("Playing song '" + song.getTitle() + "' from album '" + song.getAlbumTitle() + "'.");
+            logger.warn("Playing song '{}' from album '{}'.",
+                    song.getTitle(),
+                    song.getAlbumTitle());
         }
     }
 
@@ -51,9 +60,9 @@ public class Playlist {
         if (playingQueue.hasNext()) {
             Song song = playingQueue.next();
             playForward = true;
-            System.out.println("Playing song '" + song.getTitle() + "' from album '" + song.getAlbumTitle() + "'.");
+            logger.info("Playing song '{}' from album '{}'.", song.getTitle(), song.getAlbumTitle());
         } else if(playForward) {
-            System.out.println("It's the end of the playlist!");
+            logger.info("It's the end of the playlist!");
         }
     }
 
@@ -61,15 +70,15 @@ public class Playlist {
         if (playingQueue.hasPrevious()) {
             Song song = playingQueue.previous();
             playForward = false;
-            System.out.println("Playing song '" + song.getTitle() + "' from album '" + song.getAlbumTitle() + "'.");
+            logger.info("Playing song '{}' from album '{}'.", song.getTitle(), song.getAlbumTitle());
         } else if (!playForward) {
-            System.out.println("It's the start of the playlist!");
+            logger.info("It's the start of the playlist!");
         }
     }
 
     public void stop() {
         if (playingQueue == null) {
-            System.out.println("Playlist is empty. Nothing is playing.");
+            logger.info("Playlist is empty. Nothing is playing.");
         } else {
             playingQueue = null;
         }

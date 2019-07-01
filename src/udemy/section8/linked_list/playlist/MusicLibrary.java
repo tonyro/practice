@@ -1,14 +1,19 @@
 package udemy.section8.linked_list.playlist;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 
 public class MusicLibrary {
+    private static final Logger logger = LoggerFactory.getLogger(MusicLibrary.class);
+
     private HashMap<String, Song> albumSongIndex = new HashMap<>();
     private HashMap<String, Album> albumIndex = new HashMap<>();
 
     public void addSong(String songTitle, String duration, String albumTitle) {
         if (albumSongIndex.containsKey(albumTitle + "," + songTitle)) {
-            System.out.println("Song '" + songTitle + "' from album '" + albumTitle + "' already exists in the library.");
+            logger.warn("Song '{}' from album '{}' already exists in the library.", songTitle, albumTitle);
         } else {
             Song newSong = new Song(songTitle, duration, albumTitle);
             if (albumIndex.containsKey(albumTitle)) {
@@ -26,12 +31,12 @@ public class MusicLibrary {
         String newAlbumTitle = newAlbum.getTitle();
 
         if (albumIndex.containsKey(newAlbumTitle)) {
-            System.out.println("Album '" + newAlbumTitle + "' already exists in the library!");
+            logger.warn("Album '{}' already exists in the library!", newAlbumTitle);
             return;
         }
 
         if (newAlbum.isEmpty()) {
-            System.out.println("Album '" + newAlbumTitle + "' does not contain any songs. Such album cannot be added to the library!");
+            logger.warn("Album '{}' does not contain any songs. Such album cannot be added to the library!", newAlbumTitle);
             return;
         }
 
