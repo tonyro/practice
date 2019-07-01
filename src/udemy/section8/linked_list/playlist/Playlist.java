@@ -42,7 +42,7 @@ public class Playlist {
 
     public void play() {
         if (playingQueue != null) {
-            logger.warn("Playing is already in progress!");
+            logger.info("Playing is already in progress!");
             return;
         }
 
@@ -50,9 +50,7 @@ public class Playlist {
         if (playingQueue.hasNext()) {
             Song song = playingQueue.next();
             playForward = true;
-            logger.warn("Playing song '{}' from album '{}'.",
-                    song.getTitle(),
-                    song.getAlbumTitle());
+            logger.info("Playing song '{}' from album '{}'.", song.getTitle(), song.getAlbumTitle());
         }
     }
 

@@ -28,7 +28,7 @@ public class Player {
         alone.addSong(new Song("On a clear day (You can see forever)", "4:48", "Alone"));
         alone.addSong(new Song("Never let me go", "14:32", "Alone"));
         alone.addSong(new Song("Medley: All the things you are / Midnight mood", "4:11", "Alone"));
-        alone.addSong(new Song("A time for love", "6:56", "Alone"));
+        alone.addSong(new Song("A time for love (2)", "6:56", "Alone"));
 
 
         ml.addAlbum(kingOfBlue);
