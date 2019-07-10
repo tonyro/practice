@@ -33,6 +33,10 @@ public class Book implements Saveable {
 
     @Override
     public void restore(ArrayList<String> values) {
+        if (values == null || values.size() == 0) {
+            System.out.println("Values are empty! Cannot create Book object from empty values!");
+            return;
+        }
         for (String value : values) {
             String fieldName = value.split(":")[0];
             String fieldValue = value.split(":")[1];
