@@ -2,6 +2,7 @@ package udemy.section9.absrtact_classes.lists_challenge;
 
 public class MyOrderedStringList {
     private MyStingListItem head = null;
+    private int count = 0;
 
     public void add(String value) {
         MyStingListItem item = new MyStingListItem(value);
@@ -10,6 +11,19 @@ public class MyOrderedStringList {
             head = item;
         } else {
             setNext(item);
+        }
+    }
+
+    public int length() {
+        return this.count;
+    }
+
+    public void remove(String value) {
+        boolean isFound = false;
+        MyStingListItem currentItem = head;
+
+        while (!isFound) {
+
         }
     }
 
@@ -30,6 +44,7 @@ public class MyOrderedStringList {
                     head = item;
                 }
                 isFound = true;
+                count++;
             } else if (comp > 0) {
                 if (currentItem.next() != null) {
                     currentItem = (MyStingListItem) currentItem.next();
@@ -37,6 +52,7 @@ public class MyOrderedStringList {
                     currentItem.setNext(item);
                     item.setPrevious(currentItem);
                     isFound = true;
+                    count++;
                 }
             }
         }

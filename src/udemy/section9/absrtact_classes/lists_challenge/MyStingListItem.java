@@ -28,8 +28,12 @@ public class MyStingListItem extends MyAbstractListItem {
 
     @Override
     public int compareTo(MyAbstractListItem thatItem) {
-        if (thatItem != null) {
-            return ((String)this.value).compareTo((String)thatItem.getValue());
+        return compareTo((String)thatItem.getValue());
+    }
+
+    public int compareTo(String value) {
+        if (value != null) {
+            return ((String)this.value).compareTo(value);
         } else {
             return -1;
         }
