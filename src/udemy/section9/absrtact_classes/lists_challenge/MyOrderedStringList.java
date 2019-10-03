@@ -9,6 +9,7 @@ public class MyOrderedStringList {
 
         if (head == null) {
             head = item;
+            count++;
         } else {
             setNext(item);
         }
@@ -19,11 +20,51 @@ public class MyOrderedStringList {
     }
 
     public void remove(String value) {
+        MyStingListItem item = new MyStingListItem(value);
+
+        if (head != null) {
+            if (head.next() == null) {
+                if (head.compareTo(item) == 0) {
+                    head = null;
+                    count--;
+                }
+            } else {
+                remove(item);
+            }
+        }
+    }
+
+    private void remove(MyStingListItem item) {
         boolean isFound = false;
+        boolean isEqual;
+        boolean isHeadToDelete;
         MyStingListItem currentItem = head;
 
         while (!isFound) {
-
+            isEqual = item.compareTo(currentItem) == 0;
+            isHeadToDelete = item.compareTo(head) == 0;
+            if (isEqual) {
+                //sequence is important
+                if (isHeadToDelete) {
+                    head = (MyStingListItem) currentItem.next();
+                }
+                if (currentItem.next() != null) {
+                    currentItem.next().setPrevious(currentItem.previous());
+                }
+                if (currentItem.previous() != null) {
+                    currentItem.previous().setNext(currentItem.next());
+                }
+                currentItem.setNext(null);
+                currentItem.setPrevious(null);
+                isFound = true;
+                count--;
+            } else {
+                if (currentItem.next() != null) {
+                    currentItem = (MyStingListItem) currentItem.next();
+                } else {
+                    return;
+                }
+            }
         }
     }
 
