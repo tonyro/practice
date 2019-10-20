@@ -1,5 +1,7 @@
 package algorithms.graphs;
 
+import java.util.NoSuchElementException;
+
 public class MyQueue {
     private Node head;
     private Node tail;
@@ -8,14 +10,9 @@ public class MyQueue {
         Node newNode = new Node(e);
 
         if (head == null) {
-            head = newNode;
-            tail = newNode;
-            head.previous = newNode;
-            tail.next = newNode;
+            addFirst(newNode);
         } else {
-            tail.previous = newNode;
-            newNode.next = tail;
-            tail = newNode;
+            addLast(newNode);
         }
 
     }
@@ -25,20 +22,31 @@ public class MyQueue {
         Node nodeToReturn = head;
 
         if (head == null) {
-            return new Object();
+            throw new NoSuchElementException();
         }
 
-        head.previous.next = null;
         head = head.previous;
 
         return nodeToReturn.value;
     }
 
+    private void addFirst(Node newNode) {
+        head = newNode;
+    }
+
+    private void addLast(Node newNode) {
+        if (tail == null) {
+            head.previous = newNode;
+        } else {
+            tail.previous = newNode;
+        }
+
+        tail = newNode;
+    }
 
     private class Node {
         Object value;
         Node previous;
-        Node next;
 
         Node(Object value) {
             this.value = value;

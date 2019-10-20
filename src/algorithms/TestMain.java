@@ -17,5 +17,6 @@ public class TestMain {
         System.out.println((String)queue.get());
         System.out.println((String)queue.get());
         System.out.println((String)queue.get());
+        System.out.println((String)queue.get());
     }
 }
