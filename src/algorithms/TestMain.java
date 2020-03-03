@@ -1,22 +1,21 @@
 package algorithms;
 
 import algorithms.graphs.MyQueue;
+import algorithms.graphs.models.Graph;
+import algorithms.graphs.models.Vertex;
 
 public class TestMain {
     public static void main(String[] args) {
-        MyQueue queue = new MyQueue();
+        Graph graph = new Graph();
 
-        queue.add("one");
-        queue.add("two");
-        queue.add("three");
-        queue.add("four");
-        queue.add("five");
+        Vertex vertex1 = new Vertex("What's Up, Tiger Lily?");
+        Vertex vertex2 = new Vertex("Take the Money and Run");
+        Vertex vertex3 = new Vertex("Bananas");
+        Vertex vertex4 = new Vertex("Everything You Always Wanted to Know About Sex");
+        Vertex vertex5 = new Vertex("Sleeper");
+        Vertex vertex6 = new Vertex("Love and Death");
+        Vertex vertex7 = new Vertex("Annie Hall");
 
-        System.out.println((String)queue.get());
-        System.out.println((String)queue.get());
-        System.out.println((String)queue.get());
-        System.out.println((String)queue.get());
-        System.out.println((String)queue.get());
-        System.out.println((String)queue.get());
+
     }
 }

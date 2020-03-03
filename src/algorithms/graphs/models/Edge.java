@@ -16,4 +16,14 @@ public class Edge {
     public Vertex getTail() {
         return tail;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Edge))
+            return false;
+
+        Edge edge = (Edge) obj;
+
+        return ((edge.head == this.head) && (edge.tail == this.tail));
+    }
 }

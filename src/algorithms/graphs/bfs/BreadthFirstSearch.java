@@ -10,7 +10,7 @@ public class BreadthFirstSearch {
         this.graph = graph;
     }
 
-    public Vertex search(Vertex start) {
+    public Vertex search(String toFind) {
         return null;
     }
 }

@@ -1,15 +1,20 @@
 package algorithms.graphs.models;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Graph representation as adjacency list
  */
 public class Graph {
     private List<Vertex> vertices;
-    private List<Edge> edges;
+    private Set<Edge> edges;
 
-    public Graph(List<Vertex> vertices, List<Edge> edges) {
+    public Graph() {
+        vertices = new ArrayList<>();
+        edges = new HashSet<>();
+    }
+
+    public Graph(List<Vertex> vertices, Set<Edge> edges) {
         this.vertices = vertices;
         this.edges = edges;
     }
@@ -18,7 +23,12 @@ public class Graph {
         return vertices;
     }
 
-    public List<Edge> getEdges() {
+    public Set<Edge> getEdges() {
         return edges;
+    }
+
+    public void addVertex(Vertex vertex) {
+        vertices.add(vertex);
+        edges.addAll(vertex.getEdges());
     }
 }
